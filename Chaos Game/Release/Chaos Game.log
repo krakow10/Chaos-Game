@@ -1,0 +1,11 @@
+﻿  ChaosGame.cpp
+ChaosGame.cpp(14): warning C4244: 'initializing': conversion from 'double' to 'unsigned int', possible loss of data
+ChaosGame.cpp(14): warning C4244: 'initializing': conversion from 'double' to 'const unsigned int', possible loss of data
+ChaosGame.cpp(28): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+  Generating code
+  20 of 309 functions ( 6.5%) were compiled, the rest were copied from previous compilation.
+    0 functions were new in current compilation
+    0 functions had inline decision re-evaluated but remain unchanged
+  Finished generating code
+  Chaos Game.vcxproj -> E:\Documents\cpp\Chaos Game\Release\Chaos Game.exe
+  Chaos Game.vcxproj -> E:\Documents\cpp\Chaos Game\Release\Chaos Game.pdb (Full PDB)
