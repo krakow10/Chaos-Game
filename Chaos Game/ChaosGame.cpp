@@ -6,6 +6,7 @@
 #include <stdlib.h>
 #include <time.h>
 #include <math.h>
+#include <string.h>
 #include <iostream>
 const double pi = 3.1415926535897932385;
 const int breaks = 5;//How many status updates to do during the iterations.
@@ -21,20 +22,18 @@ void encodeOneStep(const char* filename, std::vector<unsigned char>& image, unsi
 
 int main(int argc, char* argv[])
 {
-	int N = 3;//wow the compiler really doesn't like N=0
-	int size = 512;//Image size x and y
+	unsigned N = 3;//wow the compiler really doesn't like N=0
+	unsigned size = 512;//Image size x and y
 	unsigned long long int it_mul = 256;//Iteration multiplier, supposedly iterations per pixel
 
-	int arg = 1;
-	while (arg < argc) {
-		std::cout << "Argument #" << arg << " " << argv[arg] << std::endl;
-		if (argv[arg] == "-n")
+	for (int arg = 1; arg < argc; ++arg) {
+		//std::cout << "Argument #" << arg << " " << argv[arg] << std::endl;
+		if (strcmp(argv[arg], "-n") == 0)
 			N = atoi(argv[++arg]);
-		else if (argv[arg] == "-size")
+		else if (strcmp(argv[arg], "-size") == 0)
 			size = atoi(argv[++arg]);
-		else if (argv[arg] == "-mul")
+		else if (strcmp(argv[arg], "-mul") == 0)
 			it_mul = atoi(argv[++arg]);
-		arg++;
 	}
 	std::cout << "N: " << N << std::endl;
 	std::cout << "Size: " << size << std::endl;
@@ -61,7 +60,7 @@ int main(int argc, char* argv[])
 		else {//Polygon
 			double *px = new double[N];
 			double *py = new double[N];
-			for (int i = 0; i < N; ++i) {
+			for (unsigned i = 0; i < N; ++i) {
 				px[i] = size*(1 + cos(pi*(2 * i + 1) / N)) / 2;
 				py[i] = size*(1 + sin(pi*(2 * i + 1) / N)) / 2;
 			}
